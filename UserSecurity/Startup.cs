@@ -54,7 +54,15 @@ namespace UserSecurity
             } );
             services.AddControllers();
 
-
+            services.AddCors(options => {
+                options.AddPolicy("EnableCORS", builder =>
+                 {
+                     builder.AllowAnyOrigin()
+                     .AllowAnyMethod()
+                     .AllowAnyHeader()
+                    ;
+                 });
+            });
 
 
 
@@ -74,7 +82,7 @@ namespace UserSecurity
             }
             app.UseAuthentication();
             app.UseHttpsRedirection();
-
+            app.UseCors("EnableCORS");
             app.UseRouting();
 
             app.UseAuthorization();
