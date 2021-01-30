@@ -22,5 +22,6 @@ export class HomeComponent {
   }
   public logOut = () => {
     localStorage.removeItem("jwt");
+    localStorage.removeItem("refreshToken");
   }
 }

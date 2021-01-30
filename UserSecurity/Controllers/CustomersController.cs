@@ -12,7 +12,7 @@ namespace UserSecurity.Controllers
     public class CustomersController : ControllerBase
     {
         // GET api/values
-        [HttpGet, Authorize]
+        [HttpGet, Authorize(Roles = "Manager")]
         public IEnumerable<string> Get()
         {
             return new string[] { "John Doe", "Jane Doe" };
